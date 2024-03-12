@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scholarpei-blog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on scholarpei-blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 Mar 2024 15:50:50 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[note] MIT-the missing semester —— Vim 学习笔记</title>
+      <link>http://localhost:1313/posts/vim-note/</link>
+      <pubDate>Tue, 12 Mar 2024 15:50:50 +0800</pubDate>
+      <guid>http://localhost:1313/posts/vim-note/</guid>
+      <description>Vim 始于1976年的Vi编辑器 持续使用，使用编辑器超过20h，可以达到之前一样的开发效率，并且在以后的coding中愈发感受到它的魅力 Vim是基于命令行当前最流行</description>
+    </item>
+    <item>
+      <title>关于</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sat, 29 Dec 2018 20:24:28 +0800</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>Hugo 官方主页: https://gohugo.io/ Hugo的安装方式有两种，一种是直接下载编译好的Hugo二进制文件。如果只是使用Hugo推荐用这种方式。另一种方式是获取Hugo的源码，自己编译。</description>
+    </item>
+  </channel>
+</rss>

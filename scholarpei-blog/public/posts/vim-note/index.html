@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VarKai" />
+	
+	
+	
+	<title>[note] MIT-the missing semester —— Vim 学习笔记 ｜ scholarpei-blog</title>
+	
+    
+    
+    <meta name="description" content="Vim 始于1976年的Vi编辑器 持续使用，使用编辑器超过20h，可以达到之前一样的开发效率，并且在以后的coding中愈发感受到它的魅力 Vim是基于命令行当前最流行" />
+    
+
+    
+    
+    <meta name="keywords" content="scholarpei, programming, blog" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="http://localhost:1313/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="http://localhost:1313/">
+                    <span>scholarpei-blog</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">A blog of a SCUT student</p>
+            <div class="my_socials">
+                
+                
+                <a href="%20" title="facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
+                
+                
+                
+                <a href="https://github.com/lihepei" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="instagram" target="_blank"><i class="ri-instagram-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="weibo" target="_blank"><i class="ri-weibo-fill"></i></a>
+                
+                
+                <a href="http://localhost:1313/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/vim-note/'>[note] MIT-the missing semester —— Vim 学习笔记</a></h2>
+                        <span class="date">2024.03.12</span>
+                    </div>
+                    <div class="post_content markdown"><h1 id="vim">Vim</h1>
+<p>始于1976年的Vi编辑器</p>
+<p>持续使用，使用编辑器超过20h，可以达到之前一样的开发效率，并且在以后的coding中愈发感受到它的魅力</p>
+<p>Vim是基于命令行当前最流行的编辑器</p>
+<p>有多个操作模式</p>
+<h1 id="vim的哲学">Vim的哲学</h1>
+<p>Vim 是一个<em>多模态</em>编辑 器，Vim避免了使用鼠标（因为太慢了），甚至避免了使用键盘上下左右键，因为那样会导致过多的手指的移动。</p>
+<p>这样的Vim使用的哲学使得<strong>vim成为了一个可以跟上你的思维模式的编辑器</strong>，因为你可以专心于coding而不是反复得切换鼠标键盘，或者是将你的finger移动到各种各样得地方上去。</p>
+<h1 id="一些解释">一些解释</h1>
+<p>在课程中以及vim的一些教程中常常会出现一些符号，这代表不同的组合键，有以下几点。</p>
+<ol>
+<li>
+<p><strong>裸键(bare key)</strong> 当我们说 <code>i</code> 时，就是单单指按下<code>i</code> 键</p>
+</li>
+<li>
+<p><strong>组合键</strong> ，拿ctrl+V举例，有三种方式，分别是<code>^V</code> ,<code>Ctrl-V</code>,<code>&lt;C-V&gt;</code></p>
+</li>
+</ol>
+<h1 id="编辑模式">编辑模式</h1>
+<p>当你打开vim时，默认打开的是普通模式(normal)。</p>
+<p>在插入模式中按下的大多数键将进入文本缓冲区，而在普通模式中则不会</p>
+<p>从普通模式按下<code>i</code>进入插入模式，再按下<code>&lt;Esc&gt;</code>回到普通模式</p>
+<p>从普通模式按下<code>r</code>进入替换模式，再按下<code>&lt;Esc&gt;</code>回到普通模式</p>
+<p>从普通模式按下<code>v</code>进入可视化模式，再按下<code>&lt;Esc&gt;</code>回到普通模式</p>
+<p>从普通模式按下<code>:</code>进入命令模式，再按下<code>&lt;Esc&gt;</code>回到普通模式</p>
+<ul>
+<li>
+<p><strong>普通模式(normal)</strong>：移动光标、阅读内容、从文件到文件的跳转</p>
+</li>
+<li>
+<p><strong>插入模式(insert)</strong>：插入文本</p>
+</li>
+<li>
+<p><strong>替换模式(replace)</strong>：覆盖文本而不是插入文本</p>
+</li>
+<li>
+<p><strong>可视化模式（visual <code>v</code>一般、<code>&lt;S-V&gt;</code>行、<code>&lt;C-V&gt;</code>块）</strong>：选中文本块</p>
+</li>
+<li>
+<p><strong>命令模式(command)</strong>：用于执行命令</p>
+</li>
+</ul>
+<p><img src="https://github.com/lihepei/scholarpei_blog/blob/main/scholarpei-blog/static/blog-picture/vim-note/1.png?raw=true" alt=""></p>
+<p>由于在使用Vim时会很多次用到<code>ESC</code>键，而它在键盘的角落，所以推荐将大小写锁定键绑定为ESC键（或者用原生的<code>ctrl+[</code>）</p>
+<p>在vim配置文件中插入<code>inoremap jk &lt;esc&gt;</code> ，则是讲jk映射为esc</p>
+<p>vim支持参数输入，例如 <code>vim text.md</code>将会打开该目录下的text文件</p>
+<h1 id="操作方法">操作方法</h1>
+<h3 id="插入文本">插入文本</h3>
+<p>切换到插入模式，插入任何你想要的文本</p>
+<h3 id="命令行">命令行</h3>
+<p>正常模式键入<code>:</code>打开命令模式，下面是常见命令。</p>
+<ul>
+<li>
+<p><code>:q</code> 退出当前窗口（quit），只有只剩一个窗口才退出vim</p>
+<ul>
+<li><code>:qa</code> 退出所有窗口(quit all)</li>
+</ul>
+</li>
+<li>
+<p><code>:w</code> 保存（write）</p>
+<ul>
+<li><code>:w {filename}</code> 保存到目录下的filename文件中</li>
+</ul>
+</li>
+<li>
+<p><code>:wq</code> 保存并退出</p>
+</li>
+<li>
+<p><code>:e {filename}</code> 打开要编辑的文件</p>
+</li>
+<li>
+<p><code>:ls</code> 显示打开的缓存</p>
+</li>
+<li>
+<p><code>:!{command}</code> 在vim中执行<strong>外部命令</strong>,比如<code>:!ls</code></p>
+</li>
+<li>
+<p><code>:help {标题}</code> 打开帮助文档</p>
+<ul>
+<li>
+<p><code>:help :w</code> 打开<code>:w</code>的帮助文档</p>
+</li>
+<li>
+<p><code>:help w</code> 打开<code>w</code> 移动的帮助文档</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="缓存标签页窗口">缓存，标签页，窗口</h3>
+<p>Vim 会维护一系列打开的文件，称为 “缓存”。一个 Vim 会话包含一系列标签页，每个标签页包含 一系列窗口（分隔面板）。每个窗口显示一个缓存。跟网页浏览器等其他你熟悉的程序不一样的是， 缓存和窗口不是一一对应的关系；窗口只是视角。一个缓存可以在<em>多个</em>窗口打开，甚至在同一 个标签页内的多个窗口打开。这个功能其实很好用，比如在查看同一个文件的不同部分的时候。</p>
+<p>Vim 默认打开一个标签页，这个标签也包含一个窗口。</p>
+<h1 id="普通模式">普通模式</h1>
+<p>vim界面本身是一种程序语言，键入命令本身就是一种操作，这些操作使得vim的编辑十分高效</p>
+<h3 id="信息">信息</h3>
+<ul>
+<li>
+<p><code>^G</code> 显示光标当前行位置以及文件状态信息</p>
+</li>
+<li>
+<p><code>:help &lt;command&gt;</code> 给出命令的帮助文档</p>
+</li>
+</ul>
+<h3 id="移动">移动</h3>
+<ul>
+<li>
+<p>基本移动：<code>hjkl</code> 左下上右</p>
+</li>
+<li>
+<p>词的移动：<code>w</code> 下一个词，<code>b</code> 词初，<code>e</code> 词尾</p>
+</li>
+<li>
+<p>行的移动： <code>0</code> 行初，<code>^</code> 第一个非空格字符，<code>$</code> 行尾</p>
+</li>
+<li>
+<p>段的移动：<code>{</code> 以及<code>}</code> 是按段移动</p>
+</li>
+<li>
+<p>翻页： <code>^U</code>向上翻页(up) ，<code>^D</code> 向下翻页(down)</p>
+</li>
+<li>
+<p>屏幕： <code>H</code> 屏幕首行(Highest)，<code>M</code>屏幕中间(middle)，<code>L</code> 屏幕底部(lowest)</p>
+</li>
+<li>
+<p>文件： <code>gg</code>文件头，<code>G</code>文件尾</p>
+</li>
+<li>
+<p>查找： <code>f{字符}</code>向后查找这行字符(find)，<code>F{字符}</code>向前，<code>t{字符}</code>向后跳转到该字符光标前一位(to)，<code>T{字符}</code> 向前跳转到光标后一位</p>
+</li>
+<li>
+<p>搜索: </p>
+<ul>
+<li>
+<p><code>/{正则表达式}</code>, <code>n</code> 是对后面匹配的式子搜索，<code>N</code>是对前面匹配的式子搜索</p>
+</li>
+<li>
+<p><code>? {正则表达式}</code> 逆序搜索</p>
+</li>
+</ul>
+</li>
+<li>
+<p>杂项： <code>%</code> （找到配对并移动到另一边，比如括号或者 /* */ 之类的注释对）</p>
+</li>
+<li>
+<p>移动到行数： <code>:{行数}&lt;CR&gt;</code> 或者 <code>{行数}G</code> ({行数} 为行数)</p>
+</li>
+<li>
+<p>返回： <code>^O</code>回到之前的位置，<code>^I</code> 回到较新的位置</p>
+</li>
+</ul>
+<h3 id="编辑">编辑</h3>
+<ul>
+<li>
+<p><code>O</code> 在上方 <code>o</code> 在下方插入行，并转到insert模式</p>
+</li>
+<li>
+<p><code>a</code> 光标移动到下一位并转到插入模式</p>
+</li>
+<li>
+<p><code>A</code> 光标转到行末并转到插入模式</p>
+</li>
+<li>
+<p><code>u</code> 撤销(undo) ，<code>U</code> 恢复到本行的初始状态</p>
+</li>
+<li>
+<p><code>^r</code> 重做(redo)</p>
+</li>
+<li>
+<p><code>d{移动命令}</code> 删除 {移动命令}</p>
+<ul>
+<li>
+<p>例如，<code>dw</code> 删除词，<code>d$</code> 删除到行尾，<code>d0</code> 删除到行头，<code>dd</code>删除当前行。</p>
+</li>
+<li>
+<p>当删除整行<code>dd</code>时，该行会被保存到Vim寄存器中，按<code>p</code>则会复制到光标所在行的下一行</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>c{移动命令}</code> 改变 {移动命令}，相当于d命令然后转到插入模式，<code>cc</code>删除当前行并转到插入模式</p>
+</li>
+<li>
+<p><code>x</code>删除光标的字符（相当于<code>dl</code>）</p>
+</li>
+<li>
+<p><code>s</code>替换字符并转到插入模式（相当于<code>xi</code>）</p>
+</li>
+<li>
+<p><code>r{字符}</code>替换光标字符为指定字符</p>
+<ul>
+<li>
+<p><code>:r {filename} </code> 将filename文件内容提取到光标处</p>
+</li>
+<li>
+<p><code>R</code> 进入替换模式，相当于删除一个字符插入一个字符的模式</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>y</code> 复制 &ldquo;yank&quot;是vim中复制的专用术语 ；<code>yy</code> 复制当前行；同样可以搭配移动命令，如<code>yw</code></p>
+</li>
+<li>
+<p><code>p</code> 粘贴 (paste)</p>
+</li>
+<li>
+<p><code>v</code> 进入可视化模式，并进行操作</p>
+<ul>
+<li>
+<p>选中文字，进行复制、删除、改变等操作</p>
+</li>
+<li>
+<p><code>V</code>进入行可视化，选择则是每行</p>
+</li>
+<li>
+<p><code>^v</code>进入块可视化，选择是矩形形状的</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>~</code>对选择的文本将大小写反转（先再可视化模式选择文本）</p>
+</li>
+<li>
+<p><code>.</code> 重复上一次操作的命令</p>
+</li>
+</ul>
+<h3 id="替换">替换</h3>
+<ul>
+<li>
+<p><code>:s/sth1/sth2</code>替换命令将光标所在行第一个匹配替换为sth2，如果是<code>:s/sth1/sth2/g</code> 则是替换全行的匹配串</p>
+</li>
+<li>
+<p><code>:#,#s/sth1/sth2/g</code> #,#代表的是替换操作若干行的首尾行</p>
+</li>
+<li>
+<p><code>:%s/sth1/sth2/g</code> 替换整个文件的匹配串</p>
+</li>
+<li>
+<p><code>:%s/sth1/sth2/gc</code> 替换整个文件，并且对每个替换<strong>提示是否替换</strong></p>
+</li>
+</ul>
+<h3 id="计数">计数</h3>
+<p>在操作前加上数字，会执行操作若干次</p>
+<p>EX.</p>
+<ul>
+<li>
+<p><code>3w</code> 向后移动三个词</p>
+</li>
+<li>
+<p><code>5j</code>向下移动5行</p>
+</li>
+<li>
+<p><code>7dw</code> 删除后面7个词</p>
+</li>
+</ul>
+<h3 id="修饰语">修饰语</h3>
+<p>用修饰语改变名词的意思，修饰语有<code>i</code> 内部的，<code>a</code> 周围/包括</p>
+<ul>
+<li>
+<p><code>ci(</code> 改变当前括号内的内容</p>
+</li>
+<li>
+<p><code>ci[</code> 改变当前方括号内的内容</p>
+</li>
+<li>
+<p><code>da'</code>删除一个单引号字符串，包括周围的单引号</p>
+</li>
+</ul>
+<h3 id="多窗口">多窗口</h3>
+<ul>
+<li>
+<p>用<code>:sp</code> / <code>:vsp</code> 来分割窗口</p>
+</li>
+<li>
+<p>同一个缓存可以在多个窗口中显示</p>
+</li>
+<li>
+<p><code>^W</code> 在不同窗口之间跳转</p>
+</li>
+</ul>
+<h3 id="设置类命令">设置类命令</h3>
+<ul>
+<li>
+<p><code>:set ic</code> igore case 忽略大小写</p>
+</li>
+<li>
+<p><code>:set noic</code> 不要忽略大小写</p>
+</li>
+<li>
+<p><code>is</code> incsearch 查找短语时显示部分匹配</p>
+</li>
+<li>
+<p><code>hls</code> hlsearch 高亮显示所有的匹配短语</p>
+</li>
+</ul>
+<h1 id="自己做的配置">自己做的配置</h1>
+<p>搭配了vim 的easymotion，在vscode中vim的配置文件<code>setting.json</code>中修改</p>
+<h3 id="easymotion">easymotion</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// settings.json
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;vim.leader&#34;: &#34; &#34;,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    &#34;vim.easymotion&#34;: true,
+</span></span><span class="line"><span class="cl">    &#34;vim.easymotionKeys&#34;: &#34;hklyuiopnm,qwertzxcvbasdgjf;&#34;,
+</span></span><span class="line"><span class="cl">    &#34;vim.easymotionJumpToAnywhereRegex&#34;: &#34;\\b[A-Za-z0-9]|[A-Za-z0-9]\\b|_.|#.|[a-z][A-Z]&#34;,
+</span></span><span class="line"><span class="cl">    &#34;vim.normalModeKeyBindingsNonRecursive&#34;: [
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            // toggle easy motion, but two word
+</span></span><span class="line"><span class="cl">            &#34;before&#34;: [ &#34;f&#34; ],
+</span></span><span class="line"><span class="cl">            &#34;after&#34;: [ &#34;leader&#34;, &#34;leader&#34;, &#34;2&#34;, &#34;s&#34; ],
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            // toggle easy motion
+</span></span><span class="line"><span class="cl">            &#34;before&#34;: [ &#34;s&#34; ],
+</span></span><span class="line"><span class="cl">            &#34;after&#34;: [ &#34;leader&#34;, &#34;leader&#34;,  &#34;s&#34; ],
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>vim.normalModeKeyBindingsNonRecursive</code> 这个的意思是， vim 的 normal 模式下的快捷键配置，并且覆盖原本 vim 的配置 (NonRecursive)</p>
+<p>easymotion设置快速跳转，用 <code>f</code> 代替两个字母的快速跳转，<code>s</code> 代替一个字母的快速跳转</p>
+<h3 id="代码跳转">代码跳转</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;vim.normalModeKeyBindingsNonRecursive&#34;: [
+</span></span><span class="line"><span class="cl">    // ...
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        // get info
+</span></span><span class="line"><span class="cl">        &#34;before&#34;: [ &#34;leader&#34;, &#34;i&#34; ],
+</span></span><span class="line"><span class="cl">        &#34;commands&#34;: [ &#34;editor.action.showHover&#34; ],
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">]
+</span></span></code></pre></div><p><code>[leader] + i</code>显示代码信息，<strong>替代鼠标悬停获取对象信息</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;vim.normalModeKeyBindingsNonRecursive&#34;: [
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">            // goto error
+</span></span><span class="line"><span class="cl">            &#34;before&#34;: [ &#34;g&#34;, &#34;e&#34; ],
+</span></span><span class="line"><span class="cl">            &#34;commands&#34;: [ &#34;editor.action.marker.nextInFiles&#34; ],
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">],
+</span></span></code></pre></div><p><code>ge</code> ：goto error (warning, info)， <strong>跳转到项目有 Error，Warning 或 Info 的地方</strong>。这个能帮我们快速定位因为我们修改代码导致出问题的地方。</p>
+</div>
+                    <div class="post_footer">
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>未来是白银的，谜底是热寂之后</span>
+    </div>
+</footer>
+    <script src="http://localhost:1313/js/jquery-3.5.1.min.js"></script>
+<link href="http://localhost:1313/css/fancybox.min.css" rel="stylesheet">
+<script src="http://localhost:1313/js/fancybox.min.js"></script>
+<script src="http://localhost:1313/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
