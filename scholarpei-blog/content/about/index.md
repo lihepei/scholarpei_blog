@@ -5,9 +5,8 @@ hidden: true
 draft: false
 ---
 
-Hugo 官方主页: [https://gohugo.io/](https://gohugo.io/)
-
-Hugo的安装方式有两种，一种是直接下载编译好的Hugo二进制文件。如果只是使用Hugo推荐用这种方式。另一种方式是获取Hugo的源码，自己编译。由于各种不可预料的网络问题，第二种方式不是那么轻易能成功，虽然最后我还是折腾出来了。
-
-Hugo二进制下载地址: [https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases)
-
+这是一名来自SCUT计院的同学的个人博客
+欢迎你的到来~
+希望我的内容对你有所帮助
+我的github个人主页 :[https://github.com/lihepei](https://github.com/lihepei)
+CSDN博客主页: [https://blog.csdn.net/weixin_43720735](https://blog.csdn.net/weixin_43720735)
