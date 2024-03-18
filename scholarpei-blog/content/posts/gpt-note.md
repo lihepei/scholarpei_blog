@@ -8,6 +8,9 @@ slug = 'Gpt Note'
 
 +++
 
+本笔记学习来自于网站 https://learningprompt.wiki/zh-Hans/
+推荐大家学习，很有帮助
+
 # To Do and Not to Do
 
 在进行一个空泛的提问时，如推荐一部电影`Recommend a movie to me`，ai往往会问你喜欢什么类型的电影，这样要聊很多轮，效率很低
