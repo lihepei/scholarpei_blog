@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/vim-note/</loc>
+    <loc>https://lihepei.github.io/posts/gpt-note/</loc>
+    <lastmod>2024-03-18T23:16:55+08:00</lastmod>
+  </url><url>
+    <loc>https://lihepei.github.io/posts/</loc>
+    <lastmod>2024-03-18T23:16:55+08:00</lastmod>
+  </url><url>
+    <loc>https://lihepei.github.io/</loc>
+    <lastmod>2024-03-18T23:16:55+08:00</lastmod>
+  </url><url>
+    <loc>https://lihepei.github.io/posts/vim-note/</loc>
     <lastmod>2024-03-12T15:50:50+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-03-12T15:50:50+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-03-12T15:50:50+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/test/</loc>
-    <lastmod>2024-03-10T23:29:36+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://lihepei.github.io/about/</loc>
     <lastmod>2018-12-29T20:24:28+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://lihepei.github.io/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://lihepei.github.io/tags/</loc>
   </url>
 </urlset>

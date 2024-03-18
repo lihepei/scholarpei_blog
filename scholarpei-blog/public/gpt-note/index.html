@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="VarKai" />
+	
+	
+	
+	<title>GPT Prompt学习笔记-以Learning Prompt为教程 ｜ scholarpei-blog</title>
+	
+    
+    
+    <meta name="description" content="To Do and Not to Do 在进行一个空泛的提问时，如推荐一部电影Recommend a movie to me，ai往往会问你喜欢什么类型的电影，这样要聊很多轮，效率很低 所以可以添加下面的语句" />
+    
+
+    
+    
+    <meta name="keywords" content="scholarpei, programming, blog" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="http://localhost:1313/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="http://localhost:1313/">
+                    <span>scholarpei-blog</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">A blog of a SCUT student</p>
+            <div class="my_socials">
+                
+                
+                <a href="%20" title="facebook" target="_blank"><i class="ri-facebook-fill"></i></a>
+                
+                
+                
+                <a href="https://github.com/lihepei" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="instagram" target="_blank"><i class="ri-instagram-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                
+                
+                <a href="%20" title="weibo" target="_blank"><i class="ri-weibo-fill"></i></a>
+                
+                
+                <a href="http://localhost:1313/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/gpt-note/'>GPT Prompt学习笔记-以Learning Prompt为教程</a></h2>
+                        <span class="date">2024.03.18</span>
+                    </div>
+                    <div class="post_content markdown"><h1 id="to-do-and-not-to-do">To Do and Not to Do</h1>
+<p>在进行一个空泛的提问时，如推荐一部电影<code>Recommend a movie to me</code>，ai往往会问你喜欢什么类型的电影，这样要聊很多轮，效率很低</p>
+<p>所以可以添加下面的语句到prompt中：</p>
+<p><code>DO NOT ASK FOR INTERESTS. DO NOT ASK FOR PERSONAL INFORMATION.</code></p>
+<p>OpenAI的API最佳实践文档写道：</p>
+<blockquote>
+<p><strong>Instead of just saying what not to do, say what to do instead. 与其告知模型不能干什么，不妨告诉模型能干什么。</strong></p>
+</blockquote>
+<p>尽管ai理解Not to do，但是加入更多限定词，告知模型干什么，回答效率更高更准确，如果还是推荐电影这个例子，可以这样写：</p>
+<p><code>Recommend a movie from the top global trending movies to me.</code></p>
+<p><img src="https://github.com/lihepei/scholarpei_blog/blob/main/scholarpei-blog/static/blog-picture/gpt-note/1.png?raw=true" alt=""></p>
+<h1 id="使用引导词引导模型输出特定内容">使用引导词，引导模型输出特定内容</h1>
+<p>在prompt的最后加上你希望ai给出的答复的首个单词的引导词，在要求ai写代码的时候作用甚好，比如写一个SQL的代码，下面会是更好的prompt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Create a MySQL query for all students in the Computer Science Department:
+</span></span><span class="line"><span class="cl">Table departments, columns = [DepartmentId, DepartmentName]
+</span></span><span class="line"><span class="cl">Table students, columns = [DepartmentId, StudentId, StudentName]
+</span></span><span class="line"><span class="cl">SELECT
+</span></span></code></pre></div><p>在末尾加上SELECT提示ai用SQL代码输出</p>
+<p>同理，python语言可以用<code>import</code>作为引导词</p>
+<p>在吴恩达 prompt engineering 课程中，引导词是在中间出现的，不同的是，它是指定让gpt以指定形式输出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">prompt = f&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">Generate a list of three made-up book titles along \
+</span></span><span class="line"><span class="cl">with their authors and genres.
+</span></span><span class="line"><span class="cl">Provide them in JSON format with the following keys:
+</span></span><span class="line"><span class="cl">book_id, title, author, genre.
+</span></span><span class="line"><span class="cl">&#34;&#34;&#34;
+</span></span></code></pre></div><p>可以看到中间要求以JSON格式输出</p>
+<h1 id="增加role以符合需求">增加role以符合需求</h1>
+<p>想把邮件更加商务，就加入business相关的词</p>
+<p>让 AI 假设自己是一个小学老师，并且很擅长将复杂的内容转变成 7、8 岁小朋友也能听懂的话，然后再改写这段话：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">You are a primary school teacher who can explain complex content to a level that a 7 or 8 year old child can understand. Please rewrite the following sentences to make them easier to understand:
+</span></span></code></pre></div><p>输出就会更加易懂</p>
+<p>除了添加角色还可以让AI模拟某个人，比如让 AI 以 David Foster Wallace 的风格改写上述那段话：</p>
+<p><code>Imagine you are the famous writer David Foster Wallace, please rewrite this sentences.</code></p>
+<h1 id="使用特殊符号指令和需要处理的文本分开">使用特殊符号指令和需要处理的文本分开</h1>
+<p>可以用 “”“将指令和文本分开。根据我的测试，如果你的文本有多段，增加”“” 会提升 AI 反馈的准确性（这个技巧来自于 OpenAI 的 API <a href="https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api">最佳实践文档</a>）</p>
+<p>这个的原因是因为AI不知道哪部分是指令，哪部分是文本，我们手动指定标出，就会提高准确性。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Please summarize the following sentences to make them easier to understand.
+</span></span><span class="line"><span class="cl">OpenAI is an American artificial intelligence (AI) research laboratory consisting of the non-profit OpenAI Incorporated (OpenAI Inc.) and its for-profit subsidiary corporation OpenAI Limited Partnership (OpenAI LP). OpenAI conducts AI research with the declared intention of promoting and developing a friendly AI. OpenAI systems run on the fifth most powerful supercomputer in the world.[5][6][7] The organization was founded in San Francisco in 2015 by Sam Altman, Reid Hoffman, Jessica Livingston, Elon Musk, Ilya Sutskever, Peter Thiel and others,[8][1][9] who collectively pledged US$1 billion. Musk resigned from the board in 2018 but remained a donor. Microsoft provided OpenAI LP with a $1 billion investment in 2019 and a second multi-year investment in January 2023, reported to be $10 billion.[10]
+</span></span></code></pre></div><p>下面是更好的Prompt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Please summarize the following sentences to make them easier to understand.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Text: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">OpenAI is an American artificial intelligence (AI) research laboratory consisting of the non-profit OpenAI Incorporated (OpenAI Inc.) and its for-profit subsidiary corporation OpenAI Limited Partnership (OpenAI LP). OpenAI conducts AI research with the declared intention of promoting and developing a friendly AI. OpenAI systems run on the fifth most powerful supercomputer in the world.[5][6][7] The organization was founded in San Francisco in 2015 by Sam Altman, Reid Hoffman, Jessica Livingston, Elon Musk, Ilya Sutskever, Peter Thiel and others,[8][1][9] who collectively pledged US$1 billion. Musk resigned from the board in 2018 but remained a donor. Microsoft provided OpenAI LP with a $1 billion investment in 2019 and a second multi-year investment in January 2023, reported to be $10 billion.[10]
+</span></span><span class="line"><span class="cl">&#34;&#34;&#34;
+</span></span></code></pre></div><h1 id="通过格式词阐述需要输出的格式">通过格式词阐述需要输出的格式</h1>
+<p>手动告诉ai需要输出的格式形式，常用于生成文本场景。</p>
+<p>例子：按topic总结，每个topic按无序列表罗列topic中的观点</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Summarize the main points of the following speech
+</span></span><span class="line"><span class="cl">Use the following format:
+</span></span><span class="line"><span class="cl">Topic 1: &lt;topic_name_1&gt;
+</span></span><span class="line"><span class="cl">- &lt;point_1&gt;
+</span></span><span class="line"><span class="cl">..
+</span></span><span class="line"><span class="cl">Topic 2: &lt;topic_name_2&gt;
+</span></span><span class="line"><span class="cl">- &lt;point_1&gt;
+</span></span><span class="line"><span class="cl">..
+</span></span><span class="line"><span class="cl">Topic 10: ..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Text: &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">Thank you so much, Fred, for that lovely introduction. And thanks to the Atlantic Council for hosting me today.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The course of the global economy over the past two years has been shaped by COVID-19 and our efforts to fight the pandemic. It’s now evident, though, that the war between Russia and Ukraine has redrawn the contours of the world economic outlook. Vladimir Putin’s unprovoked attack on Ukraine and its people is taking a devastating human toll, with lives tragically lost, families internally displaced or becoming refugees, and communities and cities destroyed.
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#34;&#34;&#34;
+</span></span></code></pre></div><p>output会是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Topic 1: The war in Ukraine
+</span></span><span class="line"><span class="cl">- The war is taking a human toll with lives lost, families displaced, and communities destroyed
+</span></span><span class="line"><span class="cl">- The Biden administration is committed to holding Russia accountable
+</span></span><span class="line"><span class="cl">- The war has violated international law and is a challenge to the international order
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Topic 2: The global economy
+</span></span><span class="line"><span class="cl">- The war is having negative impacts on the global economy, including higher commodity prices and inflation
+</span></span><span class="line"><span class="cl">- The IMF and World Bank will be focused on helping developing countries weather the impacts of the war
+</span></span><span class="line"><span class="cl">- The ultimate outcome for the global economy depends on the path of the war
+</span></span></code></pre></div><p>此技巧可以使输出更加结构化，方便你下一步进行自动化</p>
+<h1 id="zero-shot-prompts">Zero-Shot Prompts</h1>
+<p>使用一个叫做Chain of thought技巧</p>
+<p>在问题的结尾加上：<code>Let's work this out in a step by step way to be sure we have the right answer.</code> （让我们逐步思考），模型输出的答案会更加准确。</p>
+<p>解释：</p>
+<ol>
+<li>首先各位要清楚像 ChatGPT 这类产品，它是一个统计语言模型，本质上是基于过去看到过的所有数据，用统计学意义上的预测结果进行下一步的输出（这也就是为什么你在使用 ChatGPT 的时候，它的答案是一个字一个字地吐出来，而不是直接给你的原因，因为答案是一个字一个字算出来的）。</li>
+<li>当它拿到的数据里有逻辑，它就会通过统计学的方法将这些逻辑找出来，并将这些逻辑呈现给你，让你感觉到它的回答很有逻辑。</li>
+<li>在计算的过程中，模型会进行很多假设运算（不过暂时不知道它是怎么算的）。比如解决某个问题是从 A 到 B 再到 C，中间有很多假设。</li>
+<li>它第一次算出来的答案错误的原因，只是因为它在中间跳过了一些步骤（B）。而让模型一步步地思考，则有助于其按照完整的逻辑链（A &gt; B &gt; C）去运算，而不会跳过某些假设，最后算出正确的答案。</li>
+</ol>
+<p><img src="https://learningprompt.wiki/zh-Hans/assets/images/ZeroShotChainOfThought002-8036bee6fdf39bd866804837c013319a.png" alt="ZeroShotChainOfThought002png"></p>
+<p>这个技巧除了用于<strong>解决复杂问题</strong>之外，还适合<strong>生成一些连贯主题的内容</strong>（长篇文章、电影剧本）</p>
+<h1 id="few-shot-prompting">Few-Shot Prompting</h1>
+<p>请注意：思维链仅在使用<strong>大于等于100B参数</strong>的模型时，才会生效</p>
+<p>我们可以给模型一些示例，从而让模型返回更符合我们需求的答案</p>
+<p><img src="https://github.com/lihepei/scholarpei_blog/blob/main/scholarpei-blog/static/blog-picture/gpt-note/2.png?raw=true" alt=""></p>
+<p>这种示例给出让gpt明白你想干什么，希望得到什么结果（让它更好去贴切下一个接的“话”）</p>
+<p><img src="https://github.com/lihepei/scholarpei_blog/blob/main/scholarpei-blog/static/blog-picture/gpt-note/3.png?raw=true" alt=""></p>
+<p>解决办法：</p>
+<h2 id="few-shot-chain-of-thought">Few-Shot Chain of Thought</h2>
+<blockquote>
+<p>通过向大语言模型展示一些少量的样例，并在样例中解释推理过程，大语言模型在回答提示时也会显示推理过程。这种推理的解释往往会引导出更准确的结果。</p>
+</blockquote>
+<p><img src="https://learningprompt.wiki/zh-Hans/assets/images/FewShotChainOfThought001-cb0c8729dadd349fa916ca44c1c18404.png" alt="FewShotChainOfThought001png"></p>
+<p><strong>将推导的逻辑过程加入到示例的编写中</strong></p>
+</div>
+                    <div class="post_footer">
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>未来是白银的，谜底是热寂之后</span>
+    </div>
+</footer>
+    <script src="http://localhost:1313/js/jquery-3.5.1.min.js"></script>
+<link href="http://localhost:1313/css/fancybox.min.css" rel="stylesheet">
+<script src="http://localhost:1313/js/fancybox.min.js"></script>
+<script src="http://localhost:1313/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
